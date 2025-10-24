@@ -1,0 +1,10 @@
+// --- Configuration Constants ---
+export const WALLETCONNECT_PROJECT_ID = "dfe22a1aca8d834168d51a5ac05cec7b";
+export const PINATA_JWT_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJkNzBmYjgyZS1hODEwLTRmOGQtYWVmZS1iYTE4Y2E0NjQzMzciLCJlbWFpbCI6Imthcm9sb255YW5nbzE4QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiIxM2Y3ZmYwOGE3ZmVjYzc2ZDk2YSIsInNjb3BlZEtleVNlY3JldCI6ImU4ZTEyYWQxOGQxNjgxOTE1NmQ5ZGY0MDZhOWY4MmM1ZGFjOGYwODNmMWYxYmViM2RlNWQ0MDY5ODk0M2FkMTQiLCJleHAiOjE3OTI3ODY4NzZ9.MlhnKv0ZclqWZFqgpjYv3hGHdJzXlZ6TRM3kSyYsKEA";
+export const TREASURY_ACCOUNT_ID = "0.0.7118383";
+
+export const appMetadata = {
+  name: "Gamer's Mint Marketplace",
+  description: "A Hedera NFT marketplace for gamers.",
+  icons: ["https://placehold.co/128x128/1A1A2E/E94560?text=LOGO"]
+};
