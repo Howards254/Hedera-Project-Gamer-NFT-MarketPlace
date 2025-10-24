@@ -1,0 +1,470 @@
+/* --- Base Styles (Same as before) --- */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #3a3a3a;
+  background-color: #1a1a1a;
+}
+
+.logo-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a855f7; /* Purple */
+}
+
+.connect-button {
+  background-color: #9333ea; /* Purple */
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0; /* Remove padding */
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  /* Make button just big enough to hold its content */
+  display: inline-block; 
+}
+
+.connect-button:hover {
+  background-color: #a855f7;
+}
+
+.connect-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* This class is for the text INSIDE the button */
+.wallet-info-connected {
+  background-color: #166534; /* Green */
+  color: #bbf7d0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Add padding for the "Connect" text state */
+.connect-button:not(:has(.wallet-info-connected)) {
+  padding: 0.6rem 1.2rem;
+}
+
+
+.app-main {
+  flex-grow: 1;
+  padding: 2rem;
+  max-width: 700px; /* Constrain the width for the form */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-container {
+  text-align: center;
+  padding-top: 4rem;
+}
+
+/* --- NEW MINTING FORM STYLES --- */
+
+.mint-container {
+  width: 100%;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #3a3a3a;
+}
+
+.mint-container h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #a855f7;
+}
+
+.mint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between form groups */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Space between label and input */
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box; /* Important for padding to work right */
+}
+
+.form-group input[type="file"] {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.form-group input[type="file"]::file-selector-button {
+  padding: 0.75rem 1rem;
+  background-color: #444;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background-color: #555;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.mint-button {
+  background-color: #9333ea;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mint-button:hover {
+  background-color: #a855f7;
+}
+
+.mint-button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.mint-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.mint-message.error {
+  background-color: #4a1d1d;
+  color: #ffb8b8;
+  border: 1px solid #a85555;
+}
+
+.mint-message.success {
+  background-color: #1d4a2d;
+  color: #b8ffcb;
+  border: 1px solid #55a86a;
+}
+
+/* --- NEW STYLES FOR NFT DISPLAY --- */
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* Space between mint form and NFT gallery */
+}
+
+.my-nfts-container {
+  width: 100%;
+}
+
+.my-nfts-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #a855f7;
+}
+
+.loading-message,
+.error-message,
+.info-message {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.loading-message {
+  color: #ccc;
+}
+
+.error-message {
+  background-color: #4a1d1d;
+  color: #ffb8b8;
+  border: 1px solid #a85555;
+}
+
+.info-message {
+  color: #aaa;
+}
+
+
+.nft-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+  gap: 1.5rem;
+}
+
+.nft-card {
+  background-color: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  overflow: hidden; /* Keep image corners rounded */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(168, 85, 247, 0.2); /* Purple glow */
+}
+
+.nft-image {
+  width: 100%;
+  height: 180px; /* Fixed height for consistency */
+  object-fit: cover; /* Crop image nicely */
+  display: block;
+  background-color: #333; /* Placeholder bg color */
+}
+
+.nft-info {
+  padding: 1rem;
+}
+
+.nft-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ... if name is too long */
+}
+
+.nft-id,
+.nft-serial {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 0.2rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: monospace;
+}
+
+* --- NEW STYLES FOR DISCONNECT --- */
+
+/* Style the main button when connected */
+.connect-button.connected {
+  background-color: #166534; /* Green background like the inner div */
+  padding: 0; /* Remove padding from button itself */
+}
+.connect-button.connected:hover {
+  background-color: #15803d; /* Darker green on hover */
+}
+
+/* Style the inner div holding the account ID */
+.wallet-info-connected {
+  display: flex; /* Arrange items horizontally */
+  align-items: center;
+  gap: 0.75rem; /* Space between ID and disconnect text */
+  background-color: transparent; /* Make inner div transparent */
+  padding: 0.6rem 1.2rem; /* Add padding back here */
+  /* (Other existing styles for wallet-info-connected are fine) */
+}
+
+/* Style the "Disconnect?" text to look like a button */
+.disconnect-icon {
+  display: inline-block;
+  margin-left: auto; /* Push it to the right */
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #fca5a5; /* Light red */
+  text-decoration: underline;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.connect-button.connected:hover .disconnect-icon {
+  opacity: 1; /* Make disconnect text clearer on hover */
+  color: #ef4444; /* Brighter red on hover */
+}
+
+/* --- NEW STYLES FOR LISTING CONTROLS --- */
+
+/* The form wrapping the card - remove default form margins */
+.nft-card-form {
+  margin: 0;
+  padding: 0;
+  display: block; /* Ensure it takes up space */
+}
+
+/* Keep card styles the same */
+.nft-card {
+  background-color: #1a1a1a;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  /* Remove hover effect from original card div if form wraps it */
+  /* Add hover effect to the form instead if desired */
+}
+.nft-card-form:hover .nft-card {
+   transform: translateY(-5px);
+   box-shadow: 0 8px 15px rgba(168, 85, 247, 0.2); /* Purple glow */
+}
+
+
+/* Spacing for controls within the card info */
+.list-controls {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between input and button */
+}
+
+.price-input {
+  flex-grow: 1; /* Take up available space */
+  padding: 0.4rem 0.6rem;
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.9rem;
+  /* Remove spinners for number input */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.price-input::-webkit-outer-spin-button,
+.price-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.list-button {
+  background-color: #059669; /* Emerald Green */
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.list-button:hover {
+  background-color: #047857;
+}
+
+.list-button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* --- NEW STYLES FOR MARKETPLACE --- */
+
+.marketplace-container {
+  width: 100%;
+  margin-top: 3rem; /* Add space above marketplace */
+  padding-top: 2rem;
+  border-top: 1px solid #3a3a3a;
+}
+
+.marketplace-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #059669; /* Match list button color */
+}
+
+/* Reuse nft-gallery and nft-card styles */
+
+/* Add styles specific to listed items */
+.nft-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #34d399; /* Emerald */
+  margin: 0.75rem 0;
+}
+
+.nft-seller {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 1rem;
+  font-family: monospace;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.buy-button {
+  width: 100%;
+  background-color: #0ea5e9; /* Sky Blue */
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-button:hover {
+  background-color: #0284c7;
+}
+
+.buy-button:disabled {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
